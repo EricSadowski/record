@@ -23,6 +23,8 @@ public class RecordController {
 
     private List<Record> theRecords;
 
+
+
     @PostConstruct
     private void loadData() {
 
@@ -85,6 +87,12 @@ public class RecordController {
         theModel.addAttribute("records", theRecords);
 
         return "list-records";
+    }
+
+    @GetMapping("/reload")
+    public String load(){
+    loadData();
+        return "redirect:/records/main";
     }
 
     @GetMapping("/main")
