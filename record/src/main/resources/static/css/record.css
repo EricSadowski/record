@@ -1,0 +1,36 @@
+body {
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+#gallery{
+margin-top: 20px;
+}
+
+#logoNav {
+max-height: 50px;
+}
+
+#cartNav{
+height: 50px;
+}
+
+#invLink{
+text-align: center;
+background-color: black;
+color: white;
+font-size: 40px;
+}
+
+.gallery-item{
+text-align: center;
+}
+
+
+.recCover{
+height: 300px;
+margin-bottom: 10px;
+}
+

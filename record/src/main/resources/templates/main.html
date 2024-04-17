@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Record Store</title>
+    <link rel="stylesheet" th:href="@{/css/record.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+<!--    var add = document.createElement("button");-->
+<!--    button.innerHTML = "Do Something";-->
+
+<!--    // 2. Append somewhere-->
+<!--    var body = document.getElementsByTagName("body")[0];-->
+<!--    body.appendChild(button);-->
+
+<!--    // 3. Add event handler-->
+<!--    button.addEventListener ("click", function() {-->
+<!--      alert("did something");-->
+<!--    });-->
+
+
+    var prices = document.getElementsByClassName("price");
+    let textNode = document.createTextNode("0$");
+
+    document.prices.appendChild(textNode);
+</script>
+
+<nav class="navbar navbar-expand-md navbar-light bg-main">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img th:src="@{/images/record.png}" alt="logo" id="logoNav"></a>
+
+        <div class="" id="navbarMainHeader">
+            <ul class="navbar-nav mx-auto">
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" href="#" onclick="goToShop('product_id')">Admin</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#" onclick="goToShop('men')">Men's</a>-->
+<!--                </li>-->
+                <li class="nav-item" id="loginZone">
+<!--                    <button type="button" id="navLogin" class="btn btn-outline-warning btn-round" data-toggle="modal" data-target="#loginModal">-->
+<!--                        Login-->
+<!--                    </button>-->
+
+                    <div id="loggedIn">
+                        <p>Hello! User <span sec:authentication="principal.username"></span> </p>
+                    </div>
+                    <form>
+<!--                        <form action="#" th:action="@{/logout}" method="POST">-->
+
+                        <input class="btn btn-secondary" type="submit" value="Logout" />
+                        <a class="btn btn-primary" th:href="@{/records/list}">Inventory Management</a>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <a class="navbar-brand" href="#"><img th:src="@{/images/cart.svg}" alt="cart" id="cartNav"></a>
+    </div>
+</nav>
+
+
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+        <div class="container-fluid">
+
+            <div class="row gy-4 justify-content-center">
+
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="tempRecord : ${records}">
+                    <div class="gallery-item h-100">
+                        <img th:src="${tempRecord.img}" class="img-fluid recCover" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center">
+                            <div>
+                            <h3 th:text="${tempRecord.title}" ></h3> <br>
+                                <h3 th:text="${tempRecord.artist}"></h3> <br>
+                            <h3 class="price" th:text="${tempRecord.price} + '0$'" ></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+
+
+            </div>
+
+        </div>
+    </section><!-- End Gallery Section -->
+
+<div  id="invLink">
+    <p>
+        <a th:href="@{/records/list}">Inventory Management</a>
+    </p>
+</div>
+
+
+</body>
+</html>
