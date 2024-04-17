@@ -2,6 +2,7 @@ package com.concordia.recordStore.controller;
 
 import com.concordia.recordStore.service.RecordService;
 import jakarta.annotation.PostConstruct;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -89,6 +90,9 @@ public class RecordController {
         return "list-records";
     }
 
+
+    // TODO: change this to a service 
+    @Scheduled(fixedRate = 600000)
     @GetMapping("/reload")
     public String load(){
     loadData();
