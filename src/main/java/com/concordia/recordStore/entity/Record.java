@@ -8,27 +8,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 //@Entity
-@Table(name="record")
+//@Table(name="record")
 public class Record {
 
     // define fields
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+    //@Id
+   // @GeneratedValue(strategy=GenerationType.IDENTITY)
+   // @Column(name="id")
     private int id;
 
-    @Column(name="title")
+    //@Column(name="title")
     private String title;
 
-    @Column(name="artist")
+  //  @Column(name="artist")
     private String artist;
 
-    @Column(name="img")
+  //  @Column(name="img")
     private String img;
 
 
-    @Column(name="price")
+   // @Column(name="price")
     private double price;
 
 
