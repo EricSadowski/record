@@ -91,7 +91,7 @@ public class RecordController {
     }
 
 
-    // TODO: change this to a service 
+    // TODO: change this to a service
     @Scheduled(fixedRate = 600000)
     @GetMapping("/reload")
     public String load(){
